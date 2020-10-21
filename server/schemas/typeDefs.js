@@ -25,6 +25,7 @@ type User {
     username: String
     email: String
     friendCount: Int
+    password: String
     thoughts: [Thought]
     friends: [User]
 }
@@ -34,6 +35,11 @@ type User {
         user(username: String!): User
         thoughts(username: String): [Thought]
         thought(_id: ID!): Thought
+    }
+
+    type Mutation {
+        login(email: String!, password: String!): User
+        addUser(username: String!, email: String!, password: String!): User
     }
 `;
 
